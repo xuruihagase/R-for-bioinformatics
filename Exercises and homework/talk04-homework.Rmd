@@ -62,6 +62,19 @@ Sys.getenv("HOME")
 -   再次列出当前工作空间内的所有变量
 
 ```{r}
+x=3
+y=4
+z=5
+df1=data.frame(row1=c(1:5),row2=c(6:10),row3=c(11:15),row4=c(16:20))
+save.image( file = ".RData" )
+ls()
+rm(list = ls())
+load(file = ".Rdata")
+ls()
+del <-  sample(ls(),  2)   
+rm(list  = del)  
+ls()
+
 ## 代码写这里，并运行；
 
 ```
@@ -85,7 +98,15 @@ Sys.getenv("HOME")
 -   如果不，请提供解决方案；
 
 ```{r}
-## 代码写这里，并运行；
+x <- c("single", "married", "married", "single")
+x=as.factor(x)
+levels(x)=c(levels(x),"married","single")
+levels(x)
+x=factor(x,levels = levels(x))
+levels(x)
+levels(x)=c(levels(x),"windowed")
+x=factor(x,levels = levels(x))
+sort(x)
 
 ```
 
@@ -101,22 +122,29 @@ Sys.getenv("HOME")
 
 ```{r}
 ## 代码写这里，并运行；
+v = c("a", "b", "a", "c", "b")
+v=as.factor(v)
+v
+levels(v)=c("x","b","c")
+v
+
 
 ```
 
 -   比较改变前后的 `v` 的内容，改变levels 的操作使 `v` 发生了什么变化？
 
-答：
-
-### **factors合并**
-
--   创建两个由随机大写字母组成的 factors
+答 改变levels实际上改变了每个元素对应的类别。从而使v中的a转换为x
 
 -   合并两个变量，使其 `factors` 得以在合并后保留
 
 ```{r}
 ## 代码写这里，并运行；
-
+a=factor(sample(LETTERS,5))
+b=factor(sample(LETTERS,5))
+a
+b
+c=factor()
+c
 ```
 
 ------------------------------------------------------------------------
